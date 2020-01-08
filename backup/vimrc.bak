@@ -1,0 +1,95 @@
+set nocompatible
+filetype off
+let python_highlight_all=1
+syntax on
+set number
+set cursorline
+" This part is for some ultilities stuff
+"--------------------------------------------------------
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Add plugin here
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'tpope/vim-eunuch'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mattn/emmet-vim'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'junegunn/fzf.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'patstockwell/vim-monokai-tasty'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-surround'
+
+"Add Plugin end here
+
+call vundle#end()
+filetype plugin indent on
+"-------------------------------------------------------
+"some command
+":PluginList
+":PluginInstall
+":PluginSearch foo
+":PluginClean
+
+"--------------------------------------------------------
+" this Session is for lightline
+set laststatus=2
+
+if !has('gui_running')
+	set t_Co=256
+endif
+
+"let g:lightline = {
+"	\ 'colorscheme':'wombat',
+"	\ }
+
+"--------------------------------------------------------
+" This part is for NERDTREE
+" Ctrl-O to open NERDTREE
+map <C-o> :NERDTreeToggle<CR> 
+
+"--------------------------------------------------------
+" This part is for Split Navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"--------------------------------------------------------
+" This part is for setting Split Position
+set splitbelow
+set splitright
+
+"--------------------------------------------------------
+"This part is for folding code
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+
+"--------------------------------------------------------
+" This part is for Python ENV (Anaconda and Miniconda)
+"py << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+	"project_base_dir = os.environ['VIRTUAL_ENV']
+	"activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+	"execfile(activate_this, dict(__file__=activate_this))
+"EOF
+
+"--------------------------------------------------------
+" This part is for SimplyFold
+let g:SimplyFold_docstring_preview=1
+
+"--------------------------------------------------------
+" For enable vim-monokai-tasty theme
+colorscheme vim-monokai-tasty
+let g:lightline = {
+      \ 'colorscheme': 'monokai_tasty',
+      \ }
