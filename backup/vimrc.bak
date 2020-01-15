@@ -16,7 +16,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-syntastic/syntastic'
@@ -48,6 +48,19 @@ endif
 "	\ 'colorscheme':'wombat',
 "	\ }
 
+"-----------------------------------------------"
+"This session is for disable arrowkey in both normal and insert mode
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+
 "--------------------------------------------------------
 " This part is for NERDTREE
 " Ctrl-O to open NERDTREE
@@ -70,18 +83,6 @@ set splitright
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
-
-
-"--------------------------------------------------------
-" This part is for Python ENV (Anaconda and Miniconda)
-"py << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-	"project_base_dir = os.environ['VIRTUAL_ENV']
-	"activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-	"execfile(activate_this, dict(__file__=activate_this))
-"EOF
 
 "--------------------------------------------------------
 " This part is for SimplyFold

@@ -68,8 +68,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# Note that zsh-syntax-highlighting must be the last plugin sourced.
 plugins=(git)
-
+#plugins=( [plugins...] zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -99,8 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Load aliases
-#if [-f ~/.aliases ]; then
-#	. ~/.aliases
-#fi
+if [ -f ~/.aliases ]; then
+	. ~/.aliases
+fi
 #
 ZSH_THEME="spaceship"

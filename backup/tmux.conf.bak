@@ -13,3 +13,21 @@ set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | %a %h-
 set -g @themepack 'powerline/default/red'
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'
+
+#-----------------------------------------------
+
+# Free the original `Ctrl-b` prefix keybinding
+unbind C-b
+
+# set prefix key to Ctrl-a
+set -g prefix C-a
+
+# vim keys for switching panes
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+# Splitting panes
+bind - split-window -v
+bind | split-window -h
