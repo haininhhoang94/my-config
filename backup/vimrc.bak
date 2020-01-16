@@ -24,7 +24,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-surround'
-Plugin 'jupyter-vim/jupyter-vim'
+"Plugin 'jupyter-vim/jupyter-vim'
 
 "Add Plugin end here
 
