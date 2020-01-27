@@ -21,9 +21,9 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
-Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-surround'
+Plugin 'flazz/vim-colorschemes'
 
 "Add Plugin end here
 
@@ -44,9 +44,9 @@ if !has('gui_running')
 	set t_Co=256
 endif
 
-"let g:lightline = {
-"	\ 'colorscheme':'wombat',
-"	\ }
+let g:lightline = {
+	\ 'colorscheme':'wombat',
+	\ }
 
 "-----------------------------------------------"
 "This session is for disable arrowkey in both normal and insert mode
@@ -90,7 +90,4 @@ let g:SimplyFold_docstring_preview=1
 
 "--------------------------------------------------------
 " For enable vim-monokai-tasty theme
-colorscheme vim-monokai-tasty
-let g:lightline = {
-      \ 'colorscheme': 'monokai_tasty',
-      \ }
+colorscheme molokai
