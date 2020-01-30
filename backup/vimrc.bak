@@ -16,26 +16,31 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Git interface
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
-" File Manager/System
+" File Manager/System/SearchFile
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf.vim'
 
 " Skin and color scheme
 Plugin 'itchyny/lightline.vim'
 Plugin 'Zenburn'
 Plugin 'flazz/vim-colorschemes'
 
+" For faster coding style
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
+
+" Support for outside of vim
+Plugin 'tpope/vim-eunuch'
+
 " Auto-completion stuff
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-eunuch'
-Plugin 'mattn/emmet-vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'junegunn/fzf.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'szymonmaszke/vimpyter'
 
@@ -49,6 +54,21 @@ filetype plugin indent on
 ":PluginInstall
 ":PluginSearch foo
 ":PluginClean
+
+"Mode Settings
+"
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+"
+""Cursor settings:
+
+"  1 -> blinking block
+"  "  2 -> solid block 
+"  "  3 -> blinking underscore
+"  "  4 -> solid underscore
+"  "  5 -> blinking vertical bar
+"  "  6 -> solid vertical bar
 
 "--------------------------------------------------------
 " this Session is for lightline
