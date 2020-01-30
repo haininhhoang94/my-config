@@ -11,19 +11,33 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Add plugin here
 
+" Vundle plugin manager
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'tpope/vim-eunuch'
+
+" Git interface
+Plugin 'tpope/vim-fugitive'
+
+" File Manager/System
 Plugin 'scrooloose/nerdtree'
-Plugin 'mattn/emmet-vim'
+Plugin 'kien/ctrlp.vim'
+
+" Skin and color scheme
+Plugin 'itchyny/lightline.vim'
+Plugin 'Zenburn'
+Plugin 'flazz/vim-colorschemes'
+
+" Auto-completion stuff
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-eunuch'
+Plugin 'mattn/emmet-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-surround'
-Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'szymonmaszke/vimpyter'
 
 "Add Plugin end here
 
