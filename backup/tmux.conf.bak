@@ -4,10 +4,12 @@ setw -g pane-base-index 1
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-cpu'
-set -g @plugin 'jimeh/tmux-themepack'
+#set -g @plugin 'jimeh/tmux-themepack'
 set -g @plugin 'RobertKirk/tmux-ram'
-#set -g @plugin 'jatap/tmux-base16-statusline'
+set -g @plugin "arcticicestudio/nord-tmux"
+
 
 # Other examples:
 # set -g @plugin 'github_username/plugin_name'
@@ -16,9 +18,9 @@ set -g @plugin 'RobertKirk/tmux-ram'
 # source-file "${HOME}/.tmux-themepack/powerline/default/yellow.tmuxtheme"
 
 set-option -g status-position top
-set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | #{ram_bg_color} ram: #{ram_icon} #{ram_percentage} '
-# | %a %h-%d %H:%M '
-set -g @themepack 'basic'
+#set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | #{ram_bg_color} ram: #{ram_icon} #{ram_percentage} | %a %h-%d %H:%M '
+#set -g @themepack 'powerline/block/cyan'
+set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | %a %h-%d %H:%M '
 
 #-----------------------------------------------
 
@@ -39,7 +41,7 @@ bind - split-window -v
 bind | split-window -h
 
 # Color Scheme in Terminal(config 256)
-set -g default-terminal "screen-256color"
+#set -g default-terminal "screen-256color"
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'

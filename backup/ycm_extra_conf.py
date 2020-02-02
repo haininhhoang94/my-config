@@ -70,8 +70,3 @@ def PythonSysPath( **kwargs ):
                    p.join( DIR_OF_THIRD_PARTY, 'python-future', 'src' ) )
 
   return sys_path
-
-def Settings(**kwargs):
-    return {
-        'interpreter_path': '/home/haininhhoang94/anaconda3/envs/pyds/bin/python'
-    }
