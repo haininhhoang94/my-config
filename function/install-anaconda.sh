@@ -1,0 +1,2 @@
+mkdir ~/Downloads
+wget 
