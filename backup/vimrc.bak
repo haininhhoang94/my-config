@@ -126,4 +126,4 @@ let g:SimplyFold_docstring_preview=1
 
 "--------------------------------------------------------
 " For enable vim-monokai-tasty theme
-colorscheme molokai 
+colorscheme molokai_dark 
