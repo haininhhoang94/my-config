@@ -32,6 +32,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
+Plugin 'vim-scripts/indentpython.vim'
 
 " Support for outside of vim
 Plugin 'tpope/vim-eunuch'
@@ -41,9 +42,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 
 " Syntax Language Specific
+" Python
 Plugin 'nvie/vim-flake8'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'szymonmaszke/vimpyter'
 
 "Add Plugin end here
@@ -126,4 +127,4 @@ let g:SimplyFold_docstring_preview=1
 
 "--------------------------------------------------------
 " For enable vim-monokai-tasty theme
-colorscheme molokai_dark 
+colorscheme zenburn
