@@ -1,2 +1,4 @@
 make git m="your message"
-Magnet 
+Magnet
+git config --global credential.helper store
+
