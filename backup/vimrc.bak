@@ -33,6 +33,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin '907th/vim-auto-save'
 
 " Support for outside of vim
 Plugin 'tpope/vim-eunuch'
@@ -72,6 +73,8 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "  "  4 -> solid underscore
 "  "  5 -> blinking vertical bar
 "  "  6 -> solid vertical bar
+"
+let g:auto_save = 1  " enable AutoSave on Vim startup
 
 "--------------------------------------------------------
 " this Session is for lightline
@@ -127,4 +130,4 @@ let g:SimplyFold_docstring_preview=1
 
 "--------------------------------------------------------
 " For enable vim-monokai-tasty theme
-colorscheme zenburn
+colorscheme molokai
