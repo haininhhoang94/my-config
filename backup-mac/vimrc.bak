@@ -1,0 +1,142 @@
+" This is only necessary if you use"set termguicolors".
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"
+" " fixes glitch? in colors when using vim with tmux
+set background=dark
+set t_Co=256
+set termguicolors
+set nocompatible
+filetype off
+let python_highlight_all=1
+syntax on
+set number
+set cursorline
+" This part is for some ultilities stuff
+"--------------------------------------------------------
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Add plugin here
+
+" Vundle plugin manager
+Plugin 'VundleVim/Vundle.vim'
+
+" Git interface
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+
+" File Manager/System/SearchFile
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf.vim'
+
+" Skin and color scheme
+Plugin 'itchyny/lightline.vim'
+Plugin 'Zenburn'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'phanviet/vim-monokai-pro'
+
+" For faster coding style
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin '907th/vim-auto-save'
+
+" Support for outside of vim
+Plugin 'tpope/vim-eunuch'
+
+" Auto-completion/Suggestion
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+
+" Syntax Language Specific
+" Python
+Plugin 'nvie/vim-flake8'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'szymonmaszke/vimpyter'
+
+"Add Plugin end here
+
+call vundle#end()
+filetype plugin indent on
+"-------------------------------------------------------
+"some command
+":PluginList
+":PluginInstall
+":PluginSearch foo
+":PluginClean
+
+"Mode Settings
+"
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+"
+""Cursor settings:
+
+"  1 -> blinking block
+"  "  2 -> solid block 
+"  "  3 -> blinking underscore
+"  "  4 -> solid underscore
+"  "  5 -> blinking vertical bar
+"  "  6 -> solid vertical bar
+"
+let g:auto_save = 1  " enable AutoSave on Vim startup
+
+"--------------------------------------------------------
+" this Session is for lightline
+set laststatus=2
+
+"if !has('gui_running')
+"	set t_Co=256
+"endif
+
+let g:lightline = {
+	\ 'colorscheme':'wombat',
+	\ }
+
+"-----------------------------------------------"
+"This session is for disable arrowkey in both normal and insert mode
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+
+"--------------------------------------------------------
+" This part is for NERDTREE
+" Ctrl-O to open NERDTREE
+map <C-o> :NERDTreeToggle<CR> 
+
+"--------------------------------------------------------
+" This part is for Split Navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"--------------------------------------------------------
+" This part is for setting Split Position
+set splitbelow
+set splitright
+
+"--------------------------------------------------------
+"This part is for folding code
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+"--------------------------------------------------------
+" This part is for SimplyFold
+let g:SimplyFold_docstring_preview=1
+
+"--------------------------------------------------------
+" For enable vim-monokai-tasty theme
+colorscheme monokai_pro 
