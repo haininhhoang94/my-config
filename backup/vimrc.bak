@@ -36,6 +36,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'Zenburn'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'phanviet/vim-monokai-pro'
+Plugin 'luochen1990/rainbow'
 
 " For faster coding style
 Plugin 'terryma/vim-multiple-cursors'
@@ -43,6 +44,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin '907th/vim-auto-save'
+Plugin 'jiangmiao/auto-pairs'
 
 " Support for outside of vim
 Plugin 'tpope/vim-eunuch'
@@ -55,7 +57,7 @@ Plugin 'vim-syntastic/syntastic'
 " Python
 Plugin 'nvie/vim-flake8'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'szymonmaszke/vimpyter'
+" Plugin 'szymonmaszke/vimpyter'
 
 "Add Plugin end here
 
@@ -83,8 +85,15 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "  "  5 -> blinking vertical bar
 "  "  6 -> solid vertical bar
 "
-let g:auto_save = 1  " enable AutoSave on Vim startup
+"
+" this section is for python coding binding
+"inoremap <F5><Esc>:w<CR>:!clear;python3 %<CR>
+"
+"
+nnoremap <F5><Esc>:w<CR>:!clear;python3 %<CR>
 
+let g:auto_save = 1 "enable AutoSave on Vim startup
+let g:rainbow_active = 1
 "--------------------------------------------------------
 " this Session is for lightline
 set laststatus=2
