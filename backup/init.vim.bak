@@ -15,61 +15,56 @@ set cursorline
 " This part is for some ultilities stuff
 "--------------------------------------------------------
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 " Add plugin here
 
-" Vundle plugin manager
-Plugin 'VundleVim/Vundle.vim'
-
 " Git interface
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " File Manager/System/SearchFile
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
 
 " Skin and color scheme
-Plugin 'itchyny/lightline.vim'
-Plugin 'Zenburn'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'phanviet/vim-monokai-pro'
-Plugin 'luochen1990/rainbow'
+Plug 'itchyny/lightline.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'luochen1990/rainbow'
 
 " For faster coding style
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin '907th/vim-auto-save'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'vim-scripts/indentpython.vim'
+Plug '907th/vim-auto-save'
+Plug 'jiangmiao/auto-pairs'
 
 " Support for outside of vim
-Plugin 'tpope/vim-eunuch'
+Plug 'tpope/vim-eunuch'
 
 " Auto-completion/Suggestion
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-syntastic/syntastic'
 
 " Syntax Language Specific
 " Python
-Plugin 'nvie/vim-flake8'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'vim-python/python-syntax'
-Plugin 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
+Plug 'nvie/vim-flake8'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-python/python-syntax'
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
 
-"Add Plugin end here
+"Add Plug end here
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 "-------------------------------------------------------
 "some command
-":PluginList
-":PluginInstall
-":PluginSearch foo
-":PluginClean
+":PlugList
+":PlugInstall
+":PlugSearch foo
+":PlugClean
 
 "Mode Settings
 "
