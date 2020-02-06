@@ -6,7 +6,7 @@ cp ../backup/tmux.conf.bak ../backup-mac/tmux.conf.bak
 cp ../backup/zshrc.conf.bak ../backup-mac/zshrc.bak
 cp ../backup/aliases.bak ../backup-mac/aliases.bak
 cp ../backup/ycm_extra_conf.py ../backup-mac/ycm_extra_conf.py
-cp ../backup/init.vim ../backup-mac/init.vim.bak
+cp ../backup/init.vim.bak ../backup-mac/init.vim.bak
 # edit the backup-mac file
 sed -i '' 's/\/home/\/Users/g' ../backup-mac/*
 
