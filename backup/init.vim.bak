@@ -1,22 +1,8 @@
-"
-" " fixes glitch? in colors when using vim with tmux
-set t_Co=256
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-set nocompatible
-filetype off
-syntax on
-set number
-set cursorline
-set completeopt-=preview
-" This part is for some ultilities stuff
-"--------------------------------------------------------
-
 call plug#begin()
 " Add plugin here
+
+" Default setting
+Plug 'tpope/vim-sensible'
 
 " Git interface
 Plug 'tpope/vim-fugitive'
@@ -28,7 +14,6 @@ Plug 'benmills/vimux'
 
 " File Manager/System/SearchFile
 Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
 Plug 'junegunn/fzf.vim'
 
 " Skin and color scheme
@@ -37,8 +22,8 @@ Plug 'flazz/vim-colorschemes'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'morhetz/gruvbox'
 Plug 'luochen1990/rainbow'
-Plug 'patstockwell/vim-monokai-tasty'
-Plug 'NLKNguyen/papercolor-theme'
+"Plug 'patstockwell/vim-monokai-tasty'
+"Plug 'NLKNguyen/papercolor-theme'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 
@@ -49,33 +34,90 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/indentpython.vim'
 Plug '907th/vim-auto-save'
 Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
 
 " Support for outside of vim
 Plug 'tpope/vim-eunuch'
 
 " Auto-completion/Suggestion
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-syntastic/syntastic'
 
 " Syntax Language Specific
 " Python
-"Plug 'nvie/vim-flake8'
-"Plug 'sheerun/vim-polyglot'
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
+Plug 'nvie/vim-flake8'
+Plug 'sheerun/vim-polyglot'
+"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
 
 
 "Add Plug end here
 
 call plug#end()
 filetype plugin indent on
+
+" -------------------------------------------------------
+"  Set Terminal Colors To 256-colors
+set termguicolors
+let &t_8f = "\[38;2;%lu;%lu;%lum"
+let &t_8b = "\[48;2;%lu;%lu;%lum"
+
+" Set Python Highlight, height of commandline, and shell location
+let g:python_highlight_all = 1
+set cmdheight=1
+set shell=/bin/sh
+
+"Some initial setting
+syntax on			" Turn on syntax coloring
+set number			" Line number
+set cursorline			" Set a line on the cursors
+set completeopt-=preview	" Turn off Preview/Scratch mode
+" This part is for some ultilities stuff
+"--------------------------------------------------------
+" Python location
+let g:python2_host_prog = '$HOME/anaconda3/envs/pyds/bin/python'
+let g:python3_host_prog = '$HOME/anaconda3/envs/pyds/bin/python3.6'
+
 "-------------------------------------------------------
+" Coc settings
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+"" Some servers have issues with backup files, see #649
+"set nobackup
+"set nowritebackup
+
+"" Better display for messages
+"set cmdheight=2
+
+"" You will have bad experience for diagnostic messages when it's default 4000.
+"set updatetime=300
+
+"" don't give |ins-completion-menu| messages.
+"set shortmess+=c
+
+"" always show signcolumns
+"set signcolumn=yes
+
+""" Use tab for trigger completion with characters ahead and navigate.
+""" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+"inoremap <silent><expr> <TAB>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+"function! s:check_back_space() abort
+  "let col = col('.') - 1
+  "return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+
 "some command
 ":PlugList
 ":PlugInstall
 ":PlugSearch foo
 ":PlugClean
 
-"let g:python_highlight_all = 1
 "Mode Settings
 "
 let &t_SI.="\e[5 q" "SI = INSERT mode
@@ -98,18 +140,14 @@ nnoremap <F5> :!python %<CR>
 " Prompt for a command to run
 nnoremap <C-t> :VimuxPromptCommand<CR>
 
-let g:auto_save = 1 "enable AutoSave on Vim startup
+"let g:auto_save = 1 "enable AutoSave on Vim startup
 let g:rainbow_active = 1
 "--------------------------------------------------------
 " this Session is for lightline
 set laststatus=2
 
-"if !has('gui_running')
-"	set t_Co=256
-"endif
-
 let g:lightline = {
-	\ 'colorscheme':'gruvbox',
+	\ 'colorscheme':'wombat',
 	\ }
 
 "-----------------------------------------------"
@@ -141,12 +179,6 @@ nnoremap <C-H> <C-W><C-H>
 " This part is for setting Split Position
 set splitbelow
 set splitright
-
-"--------------------------------------------------------
-"This part is for folding code
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
 
 "--------------------------------------------------------
 " This part is for SimplyFold
