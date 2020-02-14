@@ -1,17 +1,17 @@
-" This is only necessary if you use"set termguicolors".
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "
 " " fixes glitch? in colors when using vim with tmux
-set background=dark
 set t_Co=256
-set termguicolors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 set nocompatible
 filetype off
-let g:python_highlight_all = 1
 syntax on
 set number
 set cursorline
+set completeopt-=preview
 " This part is for some ultilities stuff
 "--------------------------------------------------------
 
@@ -22,6 +22,10 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" Combine with Tmux
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+
 " File Manager/System/SearchFile
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
@@ -31,7 +35,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'phanviet/vim-monokai-pro'
+Plug 'morhetz/gruvbox'
 Plug 'luochen1990/rainbow'
+Plug 'patstockwell/vim-monokai-tasty'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 
 " For faster coding style
 Plug 'terryma/vim-multiple-cursors'
@@ -50,10 +59,10 @@ Plug 'vim-syntastic/syntastic'
 
 " Syntax Language Specific
 " Python
-Plug 'nvie/vim-flake8'
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-python/python-syntax'
+"Plug 'nvie/vim-flake8'
+"Plug 'sheerun/vim-polyglot'
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
+
 
 "Add Plug end here
 
@@ -66,6 +75,7 @@ filetype plugin indent on
 ":PlugSearch foo
 ":PlugClean
 
+"let g:python_highlight_all = 1
 "Mode Settings
 "
 let &t_SI.="\e[5 q" "SI = INSERT mode
@@ -83,10 +93,10 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "
 "
 " this section is for python coding binding
-"inoremap <F5><Esc>:w<CR>:!clear;python3 %<CR>
-"
-"
-nnoremap <F5><Esc>:w<CR>:!clear;python3 %<CR>
+nnoremap <F5> :!python %<CR>
+
+" Prompt for a command to run
+nnoremap <C-t> :VimuxPromptCommand<CR>
 
 let g:auto_save = 1 "enable AutoSave on Vim startup
 let g:rainbow_active = 1
@@ -99,7 +109,7 @@ set laststatus=2
 "endif
 
 let g:lightline = {
-	\ 'colorscheme':'wombat',
+	\ 'colorscheme':'gruvbox',
 	\ }
 
 "-----------------------------------------------"
@@ -110,10 +120,10 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
+"inoremap <Up> <NOP>
+"inoremap <Down> <NOP>
+"inoremap <Left> <NOP>
+"inoremap <Right> <NOP>
 
 "--------------------------------------------------------
 " This part is for NERDTREE
@@ -144,4 +154,16 @@ let g:SimplyFold_docstring_preview=1
 
 "--------------------------------------------------------
 " For enable vim-monokai-tasty theme
-colorscheme monokai_pro 
+"colorscheme monokai_pro 
+colorscheme gruvbox
+let g:gruvbox_contrast_light='hard'
+let g:gruvbox_contrast_dark='hard'
+"Change theme depending on the time of day
+"let hr = (strftime('%H'))
+"if hr >= 19
+"set background=dark
+"elseif hr >= 8
+"set background=light
+"elseif hr >= 0
+"set background=dark
+"endif

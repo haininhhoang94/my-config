@@ -23,8 +23,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Git interface
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'airblade/vim-gitgutter'
 
 " File Manager/System/SearchFile
 Plugin 'scrooloose/nerdtree'
@@ -33,10 +33,10 @@ Plugin 'junegunn/fzf.vim'
 
 " Skin and color scheme
 Plugin 'itchyny/lightline.vim'
-Plugin 'Zenburn'
-Plugin 'flazz/vim-colorschemes'
+"Plugin 'Zenburn'
+"Plugin 'flazz/vim-colorschemes'
 Plugin 'phanviet/vim-monokai-pro'
-Plugin 'luochen1990/rainbow'
+"Plugin 'luochen1990/rainbow'
 
 " For faster coding style
 Plugin 'terryma/vim-multiple-cursors'
@@ -50,15 +50,15 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-eunuch'
 
 " Auto-completion/Suggestion
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 
 " Syntax Language Specific
 " Python
 Plugin 'nvie/vim-flake8'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'vim-python/python-syntax'
-Plugin 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
+"Plugin 'vim-python/python-syntax'
+"Plugin 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
 
 "Add Plugin end here
 
