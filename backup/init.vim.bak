@@ -40,7 +40,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-eunuch'
 
 " Auto-completion/Suggestion
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-syntastic/syntastic'
 
@@ -135,7 +135,7 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "
 "
 " this section is for python coding binding
-nnoremap <F5> :!python %<CR>
+nnoremap <F5> :!python3 %<CR>
 
 " Prompt for a command to run
 nnoremap <C-t> :VimuxPromptCommand<CR>
@@ -199,3 +199,5 @@ let g:gruvbox_contrast_dark='hard'
 "elseif hr >= 0
 "set background=dark
 "endif
+" Refresh NerdTree with button r
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
