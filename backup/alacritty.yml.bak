@@ -60,7 +60,7 @@ env:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  startup_mode: Fullscreen
 
   # Window title
   # title: Alacritty
@@ -148,7 +148,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 14.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -259,6 +259,35 @@ font:
   #   `- { index: 16, color: '0xff00ff' }`
   #
   #indexed_colors: []
+  #
+# Colors (Monokai Dark)
+colors:
+  # Default colors
+  primary:
+    background: '0x272822'
+    foreground: '0xF8F8F2'
+
+  # Normal colors
+  normal:
+   black:   '0x272822'
+   red:     '0xF92672'
+   green:   '0xA6E22E'
+   yellow:  '0xF4BF75'
+   blue:    '0x66D9EF'
+   magenta: '0xAE81FF'
+   cyan:    '0xA1EFE4'
+   white:   '0xF8F8F2'
+
+  # Bright colors
+  bright:
+   black:   '0x75715E'
+   red:     '0xF92672'
+   green:   '0xA6E22E'
+   yellow:  '0xF4BF75'
+   blue:    '0x66D9EF'
+   magenta: '0xAE81FF'
+   cyan:    '0xA1EFE4'
+   white:   '0xF9F8F5'
 
 # Visual Bell
 #
@@ -312,7 +341,7 @@ font:
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  unfocused_hollow: true
 
 # Live config reload (changes require restart)
 #live_config_reload: true

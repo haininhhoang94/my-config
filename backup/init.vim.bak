@@ -76,7 +76,7 @@ set completeopt-=preview	" Turn off Preview/Scratch mode
 "--------------------------------------------------------
 " Python location
 let g:python2_host_prog = '$HOME/anaconda3/envs/pyds/bin/python'
-let g:python3_host_prog = '$HOME/anaconda3/envs/pyds/bin/python3.6'
+let g:python3_host_prog = '$HOME/anaconda3/envs/pyds/bin/python3.7'
 
 "-------------------------------------------------------
 " Coc settings
