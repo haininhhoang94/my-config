@@ -186,10 +186,10 @@ let g:SimplyFold_docstring_preview=1
 
 "--------------------------------------------------------
 " For enable vim-monokai-tasty theme
-"colorscheme monokai_pro 
-colorscheme gruvbox
-let g:gruvbox_contrast_light='hard'
-let g:gruvbox_contrast_dark='hard'
+colorscheme monokai_pro 
+"colorscheme gruvbox
+"let g:gruvbox_contrast_light='hard'
+"'let g:gruvbox_contrast_dark='hard'
 "Change theme depending on the time of day
 "let hr = (strftime('%H'))
 "if hr >= 19
