@@ -36,6 +36,8 @@ Plug 'vim-scripts/indentpython.vim'
 "Plug '907th/vim-auto-save'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
+Plug 'machakann/vim-highlightedyank'
+Plug 'majutsushi/tagbar'
 
 " Support for outside of vim
 "Plug 'tpope/vim-eunuch'
@@ -90,7 +92,14 @@ let g:ale_linters = {
 
 nnoremap <space> za
 
-"Some initial setting
+" TagBar
+nmap <F8> :TagbarToggle<CR>
+
+" Refresh source init.vim
+nmap <leader>r :so ~/.config/nvim/init.vim<CR>
+
+"
+" "Some initial setting
 syntax on			" Turn on syntax coloring
 set number			" Line number
 set cursorline			" Set a line on the cursors
@@ -188,6 +197,8 @@ augroup END
 " Make NERDTree look beautiful
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '↠'
+let g:NERDTreeDirArrowCollapsible = '↡'
 
 " Close NERDTree when close file
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif<Paste>
