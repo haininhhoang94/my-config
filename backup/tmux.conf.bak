@@ -1,5 +1,5 @@
 set -g base-index 1
-setw -g pane-base-index 1
+#setw -g pane-base-index 1
 
 # Free the original `Ctrl-b` prefix keybinding
 unbind C-b

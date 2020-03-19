@@ -2,7 +2,7 @@ call plug#begin()
 " Add plugin here
 
 " Default setting
-Plug 'tpope/vim-sensible'
+" Plug 'tpope/vim-sensible'
 
 " Git interface
 Plug 'tpope/vim-fugitive'
@@ -18,38 +18,46 @@ Plug 'junegunn/fzf.vim'
 
 " Skin and color scheme
 Plug 'itchyny/lightline.vim'
-Plug 'flazz/vim-colorschemes'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'morhetz/gruvbox'
+"Plug 'flazz/vim-colorschemes'
+"Plug 'phanviet/vim-monokai-pro'
+"Plug 'morhetz/gruvbox'
 Plug 'luochen1990/rainbow'
 "Plug 'patstockwell/vim-monokai-tasty'
 "Plug 'NLKNguyen/papercolor-theme'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
+Plug 'joshdick/onedark.vim'
 
 " For faster coding style
-Plug 'terryma/vim-multiple-cursors'
+"Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'mattn/emmet-vim'
+"Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/indentpython.vim'
-Plug '907th/vim-auto-save'
+"Plug '907th/vim-auto-save'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 
 " Support for outside of vim
-Plug 'tpope/vim-eunuch'
+"Plug 'tpope/vim-eunuch'
 
 " Auto-completion/Suggestion
-Plug 'Valloric/YouCompleteMe'
+
+" Plug 'Valloric/YouCompleteMe'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Shougo/deoplete.nvim', {'do': 'UpdateRemotePlugins'}
 Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
+Plug 'zchee/deoplete-jedi'
 
 " Syntax Language Specific
 " Python
 Plug 'nvie/vim-flake8'
-Plug 'sheerun/vim-polyglot'
-"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
-
+"Plug 'sheerun/vim-polyglot'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
+" Python jupyter
+Plug 'greghor/vim-pyShell'
+Plug 'julienr/vim-cellmode'
 
 "Add Plug end here
 
@@ -67,6 +75,19 @@ let g:python_highlight_all = 1
 set cmdheight=1
 set shell=/bin/sh
 
+" Set syntax highlighting
+let g:ale_linters = {
+	\ 'python': ['flake8', 'pylint'],
+	\ 'javascript': [ 'eslint' ],
+	\ }
+
+" Folding
+
+"au BufNewFile,BufRead *.py \ 
+	"set foldmethod=indent
+
+nnoremap <space> za
+
 "Some initial setting
 syntax on			" Turn on syntax coloring
 set number			" Line number
@@ -77,46 +98,6 @@ set completeopt-=preview	" Turn off Preview/Scratch mode
 " Python location
 let g:python2_host_prog = '$HOME/anaconda3/envs/pyds/bin/python'
 let g:python3_host_prog = '$HOME/anaconda3/envs/pyds/bin/python3.8'
-
-"-------------------------------------------------------
-" Coc settings
-" if hidden is not set, TextEdit might fail.
-set hidden
-
-"" Some servers have issues with backup files, see #649
-"set nobackup
-"set nowritebackup
-
-"" Better display for messages
-"set cmdheight=2
-
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-"" don't give |ins-completion-menu| messages.
-"set shortmess+=c
-
-"" always show signcolumns
-"set signcolumn=yes
-
-""" Use tab for trigger completion with characters ahead and navigate.
-""" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-"inoremap <silent><expr> <TAB>
-      "\ pumvisible() ? "\<C-n>" :
-      "\ <SID>check_back_space() ? "\<TAB>" :
-      "\ coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-"function! s:check_back_space() abort
-  "let col = col('.') - 1
-  "return !col || getline('.')[col - 1]  =~# '\s'
-"endfunction
-
-"some command
-":PlugList
-":PlugInstall
-":PlugSearch foo
-":PlugClean
 
 "Mode Settings
 "
@@ -134,10 +115,27 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "  "  6 -> solid vertical bar
 "
 "
+"
+" ipython-shell
+noremap ,ss :call StartPyShell()<CR>
+noremap ,ss :call StartPyShell()<CR>
+
+" code execution
+nnoremap ,l :call PyShellSendLine()<CR>
+noremap <silent><C-n> :call RunTmuxPythonCell(0)<CR>
+noremap <C-a> :call RunTmuxPythonAllCellsAbove()<CR>
+
+" Reset all default mapping
+let g:cellmode_default_mappings='0'
+"let g:cellmode_tmux_sessionname='0'
+let g:cellmode_tmux_panenumber='1'
+
 " this section is for python coding binding
 nnoremap <F5> :!python3 %<CR>
 
 " Prompt for a command to run
+let g:VimuxResetSequence = ""	" Avoid send q C-U
+let g:VimuxUseNearest = 1
 nnoremap <C-t> :VimuxPromptCommand<CR>
 
 "let g:auto_save = 1 "enable AutoSave on Vim startup
@@ -186,18 +184,8 @@ let g:SimplyFold_docstring_preview=1
 
 "--------------------------------------------------------
 " For enable vim-monokai-tasty theme
-colorscheme monokai_pro 
-"colorscheme gruvbox
-"let g:gruvbox_contrast_light='hard'
-"'let g:gruvbox_contrast_dark='hard'
-"Change theme depending on the time of day
-"let hr = (strftime('%H'))
-"if hr >= 19
-"set background=dark
-"elseif hr >= 8
-"set background=light
-"elseif hr >= 0
-"set background=dark
-"endif
+"colorscheme monokai_pro 
+colorscheme onedark 
+
 " Refresh NerdTree with button r
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
