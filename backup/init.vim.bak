@@ -55,6 +55,8 @@ Plug 'nvie/vim-flake8'
 "Plug 'sheerun/vim-polyglot'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
+Plug 'davidhalter/jedi-vim'
+
 " Python jupyter
 Plug 'greghor/vim-pyShell'
 Plug 'julienr/vim-cellmode'
@@ -83,7 +85,7 @@ let g:ale_linters = {
 
 " Folding
 
-"au BufNewFile,BufRead *.py \ 
+"au BufNewFile,BufRead .py \ 
 	"set foldmethod=indent
 
 nnoremap <space> za
@@ -97,7 +99,7 @@ set completeopt-=preview	" Turn off Preview/Scratch mode
 "--------------------------------------------------------
 " Python location
 let g:python2_host_prog = '$HOME/anaconda3/envs/pyds/bin/python'
-let g:python3_host_prog = '$HOME/anaconda3/envs/pyds/bin/python3.8'
+let g:python3_host_prog = expand('$HOME/anaconda3/envs/pyds/bin/python3.8')
 
 "Mode Settings
 "
@@ -116,6 +118,18 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "
 "
 "
+"
+"------------------------------------------------------
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+" Jedi-vim
+" disable autocompletion, cause we use deoplete for completion
+let g:jedi#completions_enabled = 0
+
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+
 " ipython-shell
 noremap ,ss :call StartPyShell()<CR>
 noremap ,ss :call StartPyShell()<CR>
@@ -165,6 +179,19 @@ noremap <Right> <NOP>
 " This part is for NERDTREE
 " Ctrl-O to open NERDTREE
 map <C-o> :NERDTreeToggle<CR> 
+" Open NerdTree by default
+augroup nerdtree_open
+    autocmd!
+    autocmd VimEnter * NERDTree | wincmd p
+augroup END
+
+" Make NERDTree look beautiful
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" Close NERDTree when close file
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif<Paste>
+
 
 "--------------------------------------------------------
 " This part is for Split Navigation
