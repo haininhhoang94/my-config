@@ -199,6 +199,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '↠'
 let g:NERDTreeDirArrowCollapsible = '↡'
+let g:tagbar_iconchars = ['↠', '↡']
 
 " Close NERDTree when close file
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif<Paste>
