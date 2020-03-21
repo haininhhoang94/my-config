@@ -29,7 +29,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'
 
 " For faster coding style
-"Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 "Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/indentpython.vim'
@@ -145,7 +145,7 @@ noremap ,ss :call StartPyShell()<CR>
 
 " code execution
 nnoremap ,l :call PyShellSendLine()<CR>
-noremap <silent><C-n> :call RunTmuxPythonCell(0)<CR>
+noremap <silent><C-F5> :call RunTmuxPythonCell(0)<CR>
 noremap <C-a> :call RunTmuxPythonAllCellsAbove()<CR>
 
 " Reset all default mapping
@@ -216,6 +216,12 @@ nnoremap <C-H> <C-W><C-H>
 " This part is for setting Split Position
 set splitbelow
 set splitright
+
+"--------------------------------------------------------
+" Tab Navigation
+"nnoremap <L> :tabn<CR>
+"nnoremap <H> :tabp<CR>
+"nnoremap <C-N> :tabnew<CR>
 
 "--------------------------------------------------------
 " This part is for SimplyFold
