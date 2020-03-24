@@ -19,6 +19,7 @@ set-option -g default-shell /bin/zsh
 
 setw -g mode-keys vi
 setw -g monitor-activity on
+set -g focus-events on
 
 set-option -g status-position top
 #set -g @nord_tmux_show_status_content "0"
