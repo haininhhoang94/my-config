@@ -140,6 +140,9 @@ let g:jedi#completions_enabled = 0
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
 
+" Save by ctrl+s
+nnoremap <C-s> :w<CR>
+
 " ipython-shell
 noremap ,ss :call StartPyShell()<CR>
 noremap ,ss :call StartPyShell()<CR>
