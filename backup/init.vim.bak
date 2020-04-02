@@ -140,9 +140,6 @@ let g:jedi#completions_enabled = 0
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
 
-" Save by ctrl+s
-nnoremap <C-s> :w<CR>
-
 " ipython-shell
 noremap ,ss :call StartPyShell()<CR>
 noremap ,ss :call StartPyShell()<CR>
@@ -234,7 +231,8 @@ let g:SimplyFold_docstring_preview=1
 "--------------------------------------------------------
 " For enable vim-monokai-tasty theme
 "colorscheme monokai_pro 
-colorscheme onedark 
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+colorscheme onedark
 
 " Refresh NerdTree with button r
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
