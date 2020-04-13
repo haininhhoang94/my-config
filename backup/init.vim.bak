@@ -190,10 +190,10 @@ noremap <Right> <NOP>
 " Ctrl-O to open NERDTREE
 map <C-o> :NERDTreeToggle<CR> 
 " Open NerdTree by default
-augroup nerdtree_open
-    autocmd!
-    autocmd VimEnter * NERDTree | wincmd p
-augroup END
+"augroup nerdtree_open
+    "autocmd!
+    "autocmd VimEnter * NERDTree | wincmd p
+"augroup END
 
 " Make NERDTree look beautiful
 let NERDTreeMinimalUI = 1
