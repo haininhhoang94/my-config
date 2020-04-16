@@ -240,4 +240,4 @@ nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 " For save and quit
 noremap <C-s> :w<CR>
 noremap <C-w> :wq<CR>
-
+noremap <Esc><C-q> :q!<CR>
