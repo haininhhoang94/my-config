@@ -21,8 +21,18 @@
 alias condaw="conda.exe"
 
 alias x11_run="xfsettingsd --sm-client-disable; xfce4-panel --sm-client-disable --disable-wm-check &"
+
 alias update="sudo apt-get update"
 alias upgrade="sudo apt-get upgrade"
+alias up-up="sudo apt-get update && sudo apt-get upgrade"
 alias autoremove="sudo apt-get autoremove"
 alias remove="sudo apt-get remove --purge"
 alias install="sudo apt-get install"
+
+alias re-zsh=". ~/.zshrc"
+alias re-tmux="tmux source ~/.tmux.conf"
+
+alias git-rem="git config --global credential.helper store"
+alias git-push="git add . && git commit && git push"
+alias git-name"git config --global user.name \"Hai Ninh Hoang\""
+alias git-email="git config --global user.email \"haininhhoang94@gmail.com\""

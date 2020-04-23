@@ -23,6 +23,9 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+
+# Below is some command initialize to zsh
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -43,7 +46,7 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 	tmux attach -t 0 || tmux new -s 0
 fi
 
-conda activate pyds
+#conda activate pyds
 cd ~
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 export QT_SCALE_FACTOR=1.5
