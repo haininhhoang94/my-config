@@ -33,7 +33,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 "Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/indentpython.vim'
-"Plug '907th/vim-auto-save'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'machakann/vim-highlightedyank'
@@ -61,8 +60,9 @@ Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
 Plug 'davidhalter/jedi-vim'
 
 " Python jupyter
-Plug 'greghor/vim-pyShell'
-Plug 'julienr/vim-cellmode'
+"Plug 'greghor/vim-pyShell'
+"Plug 'julienr/vim-cellmode'
+Plug 'jupyter-vim/jupyter-vim'
 
 "Add Plug end here
 
@@ -97,7 +97,7 @@ nnoremap <space> za
 nmap <F8> :TagbarToggle<CR>
 
 " Refresh source init.vim
-nmap <leader>r :so ~/.config/nvim/init.vim<CR>
+nmap ,rr :so ~/.config/nvim/init.vim<CR>
 
 "
 " "Some initial setting
@@ -109,7 +109,7 @@ set completeopt-=preview	" Turn off Preview/Scratch mode
 "--------------------------------------------------------
 " Python location
 let g:python2_host_prog = '$HOME/anaconda3/envs/pyds/bin/python'
-let g:python3_host_prog = expand('$HOME/anaconda3/envs/pyds/bin/python3.8')
+let g:python3_host_prog = expand('$HOME/anaconda3/envs/pyds/bin/python3.6')
 
 "Mode Settings
 "
@@ -140,22 +140,21 @@ let g:jedi#completions_enabled = 0
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
 
-" ipython-shell
-noremap ,ss :call StartPyShell()<CR>
+" QtConsole Connect/Python coding config
+":set textwidth=80
+set colorcolumn=80
+let g:jupyter_mapkeys = 0
+nnoremap ,ss :JupyterConnect<CR>
 
 " code execution
-nnoremap ,l :call PyShellSendLine()<CR>
-" noremap <silent><C-F5> :call RunTmuxPythonCell(0)<CR>
-noremap <C-a> :call RunTmuxPythonAllCellsAbove()<CR>
-nnoremap <F5> :call RunTmuxPythonCell(0)<CR>
+nnoremap <leader><F5> :JupyterSendCell<CR>
+"nnoremap ,l :call PyShellSendLine()<CR>
+"noremap <C-a> :call RunTmuxPythonAllCellsAbove()<CR>
 
 " Reset all default mapping
 let g:cellmode_default_mappings='0'
 "let g:cellmode_tmux_sessionname='0'
 let g:cellmode_tmux_panenumber='1'
-
-" this section is for python coding binding
-"nnoremap <F5> :!python3 %<CR>
 
 " Prompt for a command to run
 let g:VimuxResetSequence = ""	" Avoid send q C-U
