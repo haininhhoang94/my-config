@@ -6,3 +6,4 @@ cp ~/.aliases ../backup/aliases.bak
 cp ~/.config/nvim/init.vim ../backup/init.vim.bak
 cp ~/.config/alacritty/alacritty.yml ../backup/alacritty.yml.bak
 cp ~/code-shell ../backup/code-shell
+cp ~/.config/nvim/plugins.vim ../backup/plugins.vim.bak

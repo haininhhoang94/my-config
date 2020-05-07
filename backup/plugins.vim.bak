@@ -1,0 +1,51 @@
+call plug#begin('~/.config/nvim/plugged')
+" Add plugin here
+
+" Git interface
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Combine with Tmux
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+
+" File Manager/System/SearchFile
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf.vim'
+
+" Skin and color scheme
+Plug 'itchyny/lightline.vim'
+Plug 'luochen1990/rainbow'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'joshdick/onedark.vim'
+
+" For faster coding style
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'machakann/vim-highlightedyank'
+Plug 'majutsushi/tagbar'
+Plug 'roxma/vim-tmux-clipboard'
+
+" Auto-completion/Suggestion
+Plug 'Shougo/deoplete.nvim', {'do': 'UpdateRemotePlugins'}
+Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
+Plug 'zchee/deoplete-jedi'
+
+" Syntax Language Specific
+" Python
+Plug 'nvie/vim-flake8'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
+Plug 'davidhalter/jedi-vim'
+
+" Python jupyter
+Plug 'jupyter-vim/jupyter-vim'
+
+"Add Plug end here
+call plug#end()
+filetype plugin indent on

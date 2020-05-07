@@ -1,73 +1,11 @@
-call plug#begin()
-" Add plugin here
+" The following neovim configuration work with Neovim only, having no current
+" plan to make it work to vim yet, since the authors doesn't like vim much
+" Structure will be similar to
+" https://github.com/scrapbird/dotfiles/blob/master/config/nvim/init.vim
 
-" Default setting
-" Plug 'tpope/vim-sensible'
+set nocompatible
 
-" Git interface
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" Combine with Tmux
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
-
-" File Manager/System/SearchFile
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf.vim'
-
-" Skin and color scheme
-Plug 'itchyny/lightline.vim'
-"Plug 'flazz/vim-colorschemes'
-"Plug 'phanviet/vim-monokai-pro'
-"Plug 'morhetz/gruvbox'
-Plug 'luochen1990/rainbow'
-"Plug 'patstockwell/vim-monokai-tasty'
-"Plug 'NLKNguyen/papercolor-theme'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'joshdick/onedark.vim'
-
-" For faster coding style
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-surround'
-"Plug 'mattn/emmet-vim'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdcommenter'
-Plug 'machakann/vim-highlightedyank'
-Plug 'majutsushi/tagbar'
-Plug 'roxma/vim-tmux-clipboard'
-
-" Support for outside of vim
-"Plug 'tpope/vim-eunuch'
-
-" Auto-completion/Suggestion
-
-" Plug 'Valloric/YouCompleteMe'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/deoplete.nvim', {'do': 'UpdateRemotePlugins'}
-Plug 'vim-syntastic/syntastic'
-Plug 'dense-analysis/ale'
-Plug 'zchee/deoplete-jedi'
-
-" Syntax Language Specific
-" Python
-Plug 'nvie/vim-flake8'
-"Plug 'sheerun/vim-polyglot'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins'  }
-Plug 'davidhalter/jedi-vim'
-
-" Python jupyter
-"Plug 'greghor/vim-pyShell'
-"Plug 'julienr/vim-cellmode'
-Plug 'jupyter-vim/jupyter-vim'
-
-"Add Plug end here
-
-call plug#end()
-filetype plugin indent on
+source $HOME/.config/nvim/plugins.vim
 
 " -------------------------------------------------------
 "  Set Terminal Colors To 256-colors
