@@ -67,8 +67,8 @@ bind-key H resize-pane -L 5
 bind-key L resize-pane -R 5
 
 # Shift arrow to switch windows
-bind -n S-Left  previous-window
-bind -n S-Right next-window
+#bind -n S-Left  previous-window
+#bind -n S-Right next-window
 
 # Alacritty full screen
 #bind -n F11 run-shell 'wmctrl -r 'Alacritty' -b toggle,fullscreen'
@@ -84,6 +84,7 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'tmux-plugins/tmux-yank'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'

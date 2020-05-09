@@ -26,4 +26,5 @@ alias ext-tar="tar -xvzf"
 # Tmux
 alias tmux-new="tmux new -s"
 
-
+# Vim
+alias vim="nvim"

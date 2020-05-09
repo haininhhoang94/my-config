@@ -7,15 +7,37 @@ Plug 'airblade/vim-gitgutter'
 
 " Combine with Tmux
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
 
 " File Manager/System/SearchFile
 Plug 'scrooloose/nerdtree'
+    " Refresh NerdTree with button r
+    nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+    map <C-o> :NERDTreeToggle<CR> 
+    " Make NERDTree look beautiful
+    let NERDTreeMinimalUI = 1
+    let NERDTreeDirArrows = 1
+    let g:NERDTreeDirArrowExpandable = '↠'
+    let g:NERDTreeDirArrowCollapsible = '↡'
+    let g:tagbar_iconchars = ['↠', '↡']
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
+    nnoremap <C-p> :Files<CR>
+
+" Snippets
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    let g:UltiSnipsExpandTrigger="<tab>"                                            
+    if !exists("g:UltiSnipsJumpForwardTrigger")
+        let g:UltiSnipsJumpForwardTrigger = "<tab>"
+    endif
 
 " Skin and color scheme
 Plug 'itchyny/lightline.vim'
+    set laststatus=2
+    let g:lightline = {
+    	\ 'colorscheme':'wombat',
+    	\ }
 Plug 'luochen1990/rainbow'
+    let g:rainbow_active = 1
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'
@@ -23,18 +45,26 @@ Plug 'joshdick/onedark.vim'
 " For faster coding style
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/indentpython.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
+    " Add spaces after comment delimiters by default
+    let g:NERDSpaceDelims = 1
 Plug 'machakann/vim-highlightedyank'
-Plug 'majutsushi/tagbar'
 Plug 'roxma/vim-tmux-clipboard'
 
 " Auto-completion/Suggestion
 Plug 'Shougo/deoplete.nvim', {'do': 'UpdateRemotePlugins'}
+    let g:deoplete#enable_at_startup = 1
 Plug 'vim-syntastic/syntastic'
 Plug 'dense-analysis/ale'
+    " Set syntax highlighting
+    let g:ale_linters = {
+    	\ 'python': ['flake8', 'pylint'],
+    	\ 'javascript': [ 'eslint' ],
+    	\ }
 Plug 'zchee/deoplete-jedi'
+    let g:jedi#completions_enabled = 0
+    let g:jedi#use_splits_not_buffers = "right"
 
 " Syntax Language Specific
 " Python
@@ -45,7 +75,9 @@ Plug 'davidhalter/jedi-vim'
 
 " Python jupyter
 Plug 'jupyter-vim/jupyter-vim'
-
+    let g:jupyter_mapkeys = 0
+    nnoremap ,ss :JupyterConnect<CR>
+    nnoremap <leader><F5> :JupyterSendCell<CR>
 "Add Plug end here
 call plug#end()
 filetype plugin indent on
