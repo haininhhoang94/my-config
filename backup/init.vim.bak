@@ -2,6 +2,8 @@
 " plan to make it work to vim yet, since the authors doesn't like vim much
 " Structure will be similar to
 " https://github.com/scrapbird/dotfiles/blob/master/config/nvim/init.vim
+"
+let mapleader=","
 
 set nocompatible
 
