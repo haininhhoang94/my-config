@@ -7,6 +7,10 @@ Plug 'airblade/vim-gitgutter'
 
 " Combine with Tmux
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+    let g:VimuxResetSequence = ""       " Avoid send q C-U
+    let g:VimuxUseNearest = 1
+    let g:VimuxOrientation = "h"
 
 " File Manager/System/SearchFile
 Plug 'scrooloose/nerdtree'
@@ -22,12 +26,15 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
     nnoremap <C-p> :Files<CR>
+    nnoremap <C-f> :Ag<CR>
+    let g:fzf_preview_window = 'right:40%'
 
 " Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
     let g:UltiSnipsExpandTrigger="<s-tab>"                                            
     if !exists("g:UltiSnipsJumpForwardTrigger")
-        let g:UltiSnipsJumpForwardTrigger = "<s-tab>"
+        " let g:UltiSnipsJumpForwardTrigger = "<s-tab>"
+        let g:UltiSnipsJumpForwardTrigger = "<`>"
     endif
 
 " Skin and color scheme
@@ -80,9 +87,17 @@ Plug 'davidhalter/jedi-vim'
 " Python jupyter
 Plug 'jupyter-vim/jupyter-vim'
     let g:jupyter_mapkeys = 0
-    nnoremap <leader>ss :JupyterConnect<CR>
+    " nnoremap <leader>ss :JupyterConnect<CR>
     " nnoremap <leader><F5> :JupyterSendCell<CR>
-    nnoremap <F5> :JupyterSendCell<CR>
+    " nnoremap <F5> :JupyterSendCell<CR>
+Plug 'greghor/vim-pyShell' | Plug 'julienr/vim-cellmode'
+    let g:cellmode_default_mappings='0'
+    "let g:cellmode_tmux_sessionname='0'
+    let g:cellmode_tmux_panenumber='1'
+    noremap ,ss :call StartPyShell()<CR>
+    nnoremap ,l :call PyShellSendLine()<CR>
+    nnoremap <F5> :call RunTmuxPythonCell(0)<CR>
+    nnoremap <F4> :call RunTmuxPythonAllCellsAbove()<CR>
 
 "Add Plug end here
 call plug#end()

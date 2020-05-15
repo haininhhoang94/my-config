@@ -19,7 +19,7 @@ alias re-tmux="tmux source ~/.tmux.conf"
 # Git
 alias git-cre="git config --global credential.helper store"
 alias git-push="git add . && git commit && git push"
-alias git-name"git config --global user.name \"Hai Ninh Hoang\""
+alias git_name"git config --global user.name \"Hai Ninh Hoang\""
 alias git-email="git config --global user.email \"haininhhoang94@gmail.com\""
 alias ext-tar="tar -xvzf"
 

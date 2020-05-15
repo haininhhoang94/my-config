@@ -1,15 +1,16 @@
 " Beginning and End of Line without Insert
-noremap <S-h> 0
-noremap <S-l> $
+" noremap <S-h> 0
+" noremap <S-l> $
 
 " Set tab
 "
 nnoremap <C-t> :tabnew <CR>
-nnoremap <S-Left> :tabp <CR>
 nnoremap <S-Right> :tabn <CR>
+nnoremap <C><Tab> :tabn <CR>
+nnoremap <S-Left> :tabp <CR>
 
 " Refresh source init.vim
-nmap ,rr :so ~/.config/nvim/init.vim<CR>
+nmap <leader>rr :so ~/.config/nvim/init.vim<CR>
 
 " This session is for disable arrowkey in normal mode
 noremap <Up> <NOP>

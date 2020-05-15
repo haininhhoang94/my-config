@@ -63,8 +63,8 @@ bind -n M-Down select-pane -D
 # Resize Panel
 bind-key J resize-pane -D 5
 bind-key K resize-pane -U 5
-bind-key H resize-pane -L 5
-bind-key L resize-pane -R 5
+bind-key H resize-pane -L 55
+bind-key L resize-pane -R 55
 
 # Shift arrow to switch windows
 #bind -n S-Left  previous-window
