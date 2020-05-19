@@ -31,4 +31,4 @@ nmap <CR> o<Esc>
 " For save and quit
 noremap <C-s> :w<CR>
 noremap <C-w> :wq!<CR>
-noremap <Esc><C-q> :q!<CR>
+noremap <leader><q> :q!<CR>

@@ -2,6 +2,7 @@
 let g:python_highlight_all = 1
 set cmdheight=1
 set shell=/bin/sh
+" set showtabline=2
 
 " "Some initial setting
 syntax on			" Turn on syntax coloring
@@ -40,3 +41,4 @@ set colorcolumn=80
 " This part is for setting Split Position
 set splitbelow
 set splitright
+

@@ -52,3 +52,6 @@ export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}
 export QT_SCALE_FACTOR=1.5
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export XDG_RUNTIME_DIR="$HOME/temp/"
+export RUNLEVEL=3

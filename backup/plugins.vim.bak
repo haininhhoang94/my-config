@@ -28,6 +28,7 @@ Plug 'junegunn/fzf.vim'
     nnoremap <C-p> :Files<CR>
     nnoremap <C-f> :Ag<CR>
     let g:fzf_preview_window = 'right:40%'
+Plug 'liuchengxu/vim-which-key'
 
 " Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -38,17 +39,37 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
     endif
 
 " Skin and color scheme
-Plug 'itchyny/lightline.vim'
-    set laststatus=2
+Plug 'itchyny/lightline.vim' | Plug 'mengelbrecht/lightline-bufferline'
+    " set laststatus=2
+    let g:lightline#bufferline#show_number  = 1
+    let g:lightline#bufferline#shorten_path = 0
+    let g:lightline#bufferline#unnamed      = '[No Name]'
     let g:lightline = {
-    	\ 'colorscheme':'wombat',
-    	\ }
+    	\ 'colorscheme':'one',
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+        \ },
+        \ 'tabline': {
+        \   'left': [ ['buffer'] ],
+        \   'right':  [ ['close'] ]
+        \ },
+        \ 'component_expand': {
+        \   'buffers': 'lightline#bufferline#buffers'
+        \ },
+        \ 'component_type': {
+        \   'buffers': 'tabsel'
+        \ }
+        \ }
+        " Update status lightline
+        autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+
 Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'morhetz/gruvbox'
 
 " For faster coding style
 Plug 'terryma/vim-multiple-cursors'
@@ -90,12 +111,12 @@ Plug 'jupyter-vim/jupyter-vim'
     " nnoremap <leader>ss :JupyterConnect<CR>
     " nnoremap <leader><F5> :JupyterSendCell<CR>
     " nnoremap <F5> :JupyterSendCell<CR>
-Plug 'greghor/vim-pyShell' | Plug 'julienr/vim-cellmode'
+Plug 'greghor/vim-pyShell' | Plug 'haininhhoang94/vim-cellmode'
     let g:cellmode_default_mappings='0'
     "let g:cellmode_tmux_sessionname='0'
     let g:cellmode_tmux_panenumber='1'
-    noremap ,ss :call StartPyShell()<CR>
-    nnoremap ,l :call PyShellSendLine()<CR>
+    noremap <leader>ss :call StartPyShell()<CR>
+    nnoremap <leader>l :call PyShellSendLine()<CR>
     nnoremap <F5> :call RunTmuxPythonCell(0)<CR>
     nnoremap <F4> :call RunTmuxPythonAllCellsAbove()<CR>
 
