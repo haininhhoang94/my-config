@@ -1,0 +1,10 @@
+Here's how you can set up 2 windows to scroll together:
+
+:vsplit to have two windows showing the same buffer. They start with the same viewport.
+:set scrollbind in the current window
+Switch to the other window. Adjust it to display the next "page" of text.
+L to move the cursor to the bottom of the second window
+zt to scroll the buffer so the cursor's line is at the top of the window. Now the last line in the first window is the first line in the second window.
+Ctrl+e to scroll the buffer up one line, so each window is now displaying their own distinct, but continuous views of the buffer.
+:set scrollbind so the second window scrolls along with the first window
+You can repeat these steps for any other windows you want to be part of the same bound group of windows.
