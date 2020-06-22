@@ -5,6 +5,6 @@ let &t_8b = "\[48;2;%lu;%lu;%lum"
 
 " Set background and colorscheme
 " autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-colorscheme monokai
+colorscheme gruvbox
 set background=dark
 let g:airline_theme = 'gruvbox'
